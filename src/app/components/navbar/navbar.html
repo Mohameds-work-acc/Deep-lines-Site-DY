@@ -1,0 +1,87 @@
+ <header>
+        <nav class="relative  flex justify-between items-center bg-[#0B1013] ">
+        <a class="text-3xl font-bold leading-none bg-white  py-3 px-6 pr-14" style="clip-path: polygon(0 0, 80% 0, 100% 100%, 0% 100%);" routerLink="home">
+			<img src="deepLines-logo.png" alt="Deep Lines Logo" class="h-10 sm:h-14">
+		</a>
+		<div class="lg:hidden">
+			<button class="navbar-burger flex items-center  p-3">
+				<svg class="block h-4 w-4 fill-current text-[#CA0018]" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<title>Mobile menu</title>
+					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+				</svg>
+			</button>
+		</div>
+		<ul class="hidden absolute top-1/2 left-1/3 transform -translate-y-1/2  lg:flex lg:mx-auto lg:flex lg:items-center lg:w-max lg:space-x-6">
+            <li class="desktop-view-li"><a class="text-sm text-white" routerLink="home">Home</a></li>
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#CA0018" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+            <li class="desktop-view-li"><a class="text-sm text-white" routerLink="about-us">About Us</a></li>
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#CA0018" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+            <li class="desktop-view-li"><a class="text-sm text-white" routerLink="services">Services</a></li>
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#CA0018" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+            <li class="desktop-view-li"><a class="text-sm text-white" routerLink="solutions">Solutions</a></li>
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#CA0018" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+            <li class="desktop-view-li"><a class="text-sm text-white" routerLink="projects">Projects</a></li>
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#CA0018" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+            <li class="desktop-view-li"><a class="text-sm text-white" routerLink="blogs">Blogs</a></li>
+		</ul>
+	</nav>
+	<div class="navbar-menu relative z-50 hidden">
+		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+			<div class="flex items-center mb-8">
+                <a class="mr-auto text-3xl font-bold leading-none" routerLink="home">
+					<img src="assets/deepLines-logo.png" alt="Deep Lines Logo" class="h-14">
+				</a>
+				<button class="navbar-close">
+					<svg class="h-6 w-6 text-white cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#CA0018">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+			<div>
+				<ul class="text-[#CA0018]">
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold  hover:bg-[#CA0018]/90 hover: rounded" routerLink="home">Home</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold  hover:bg-[#CA0018]/90 hover: rounded" routerLink="about-us">About Us</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold  hover:bg-[#CA0018]/90 hover: rounded" routerLink="services">Services</a>
+                    </li>
+                    <li class="mb-1">
+                            <a class="block p-4 text-sm font-semibold  hover:bg-[#CA0018]/90 hover: rounded" routerLink="projects">Projects</a>
+                        </li>
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold  hover:bg-[#CA0018]/90 hover: rounded" routerLink="blogs">Blogs</a>
+                    </li>
+				</ul>
+			</div>
+			<div class="mt-auto">
+				<p class="my-4 text-xs text-center text-white">
+					<span>Copyright © 2026</span>
+				</p>
+			</div>
+		</nav>
+	</div>
+    </header>

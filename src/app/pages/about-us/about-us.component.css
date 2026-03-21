@@ -1,0 +1,82 @@
+/* 3D Flip Card Styles */
+.perspective {
+    perspective: 1000px;
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+.group:hover .group-hover\:rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+/* Custom Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating-card {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Timeline Responsive */
+@media (max-width: 768px) {
+    .absolute.left-1\/2 {
+        left: 20px;
+        transform: none;
+    }
+    
+    .md\:w-5\/12 {
+        width: calc(100% - 40px);
+        margin-left: 40px !important;
+    }
+    
+    .bg-gradient-to-l {
+        background: linear-gradient(to right, #f9fafb, white);
+    }
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Overlay */
+.team-card {
+    transition: all 0.3s ease;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .text-7xl {
+        font-size: 3rem;
+    }
+    
+    .text-9xl {
+        font-size: 6rem;
+    }
+}

@@ -1,0 +1,280 @@
+<!-- Swiper stylesheet moved to index.html -->
+<section id="home" class="blur-bg flex flex-col items-center  text-center text-sm text-white max-md:px-2 ] bg-cover bg-center" style="background-image: url(hero-section.jpg);">
+    
+        <h1 class="font-berkshire text-[45px]/[52px] md:text-6xl/[65px] mt-6 max-w-4xl relative z-1">
+            Smart Infrastructure. Built with Precision.
+        </h1>
+
+        <p class="text-base mt-2 max-w-xl relative z-1">
+            Delivering integrated infrastructure and construction solutions across Saudi Arabia with innovation, quality, and lasting impact.
+        </p>
+
+        <p class="text-base mt-3 md:mt-7 max-w-xl relative z-1">
+            Aligned with Vision 2030. Committed to excellence.
+        </p>
+        <a download="Proposed_Filename" href="Deep Lines profile.pdf" class="hero-button mt-4"><span class="text">Get Profile</span><span>Get profile <img src="file-download-import-color-icon.svg" alt="Download icon" class="size-5 ml-3 inline-block "></span>  </a>
+        <div class="swiper mt-20 ">    
+            <div class="swiper-wrapper ">
+                @for (sector of sectors; track sector.id) {
+                <div  class="swiper-slide flex flex-col items-center"><img src="{{sector.imageUrl}}" class="h-60 w-60" alt=""><p>{{sector.title}}</p></div>
+                }
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+</section>
+<section class="w-full h-max p-10 bg-[#0B1013]">
+        <div class="bg-white h-full w-full">
+           <div class="p-4">
+                <div class="grid lg:grid-cols-4 sm:grid-cols-2 gap-x-6 gap-y-12 lg:divide-x lg:divide-gray-300">
+                    
+                    <!-- Stat 1 -->
+                    <div class="text-center">
+                        <!-- Keep your SVG -->
+                        <h3 class="text-3xl font-bold mt-6 text-[#CA0018]">Integrated</h3>
+                        <h6 class="text-base text-black font-medium mt-2">
+                            Infrastructure Solutions
+                        </h6>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="text-center">
+                        <!-- Keep your SVG -->
+                        <h3 class="text-3xl font-bold mt-6 text-[#CA0018]">ISO Certified</h3>
+                        <h6 class="text-base text-black font-medium mt-2">
+                            9001 • 14001 • 45001 Standards
+                        </h6>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="text-center">
+                        <!-- Keep your SVG -->
+                        <h3 class="text-3xl font-bold mt-6 text-[#CA0018]">Smart Projects</h3>
+                        <h6 class="text-base text-black font-medium mt-2">
+                            Water, Electricity & Traffic Systems
+                        </h6>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="text-center">
+                        <!-- Keep your SVG -->
+                        <h3 class="text-3xl font-bold mt-6 text-[#CA0018]">Vision 2030</h3>
+                        <h6 class="text-base text-black font-medium mt-2">
+                            Aligned National Development
+                        </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="">
+          <div class=" flex items-center justify-center relative py-10 ">
+            <img src="identityLine1.png" alt="Identity line " class="hidden sm:block size-50 absolute z-[-1] -top-1/5 rotate-100 left-1/30 transform  opacity-50">
+            <img src="identityLine2.png" alt="Identity line" class="hidden sm:block absolute z-[-1] -bottom-1/5  right-1/30   opacity-50">
+            <div class="w-1/2 space-y-10">
+                <div class="flex items-center gap-4">
+                    <p class="mt-4 h-1 w-20 bg-[#CA0018]"></p>
+                    <h2 class="text-3xl  font-bold mt-4 text-[#0B1013]">About Us</h2>
+                </div>
+                <div class="w-[90%] text-base text-[#0B1013] font-medium">
+                    Deep Lines is a Saudi infrastructure company delivering integrated solutions in water, sewage, electricity, drainage, and smart traffic systems.
+
+                    We operate with a strong commitment to quality, governance, and sustainability. Our specialized engineering team utilizes modern technologies and international standards to execute complex projects efficiently and reliably. Inspired by Vision 2030, we aim to build smart infrastructure that supports national growth and creates lasting impact for future generations.
+                </div>
+
+            </div>
+            <div class="flex gap-4 items-center justify-center">
+                <div>
+                    <img src="FAQ-bg.jpg" alt="About us image" class="h-full w-80 object-cover">
+                </div>
+                <div class="flex flex-col gap-4 h-full">
+                    <img src="PARTNERSHIP VISUALcept.jpg" alt="About us image" class="h-31 w-30">
+                    <img src="RENEWABLE ENERGY.jpg" alt="About us image" class="h-31 w-30">
+                    <img src="INTRO IMAGE.jpeg" alt="About us image" class="h-31 w-30">
+                </div>
+            </div>
+          </div>
+    </section>
+    <section class="relative w-full py-24 md:py-10 bg-white overflow-hidden">
+
+    <!-- DYNAMIC BACKGROUND: LINES IN MOTION -->
+    <div class="absolute inset-0 ">
+        <!-- Primary line graphic with higher contrast & movement -->
+        <img 
+            src="identityLine3.png" 
+            alt=""
+            class="absolute  h-60  opacity-60 md:opacity-70 "
+            aria-hidden="true"
+        >
+        <!-- Secondary subtle gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-white/90"></div>
+        
+        <!-- Floating geometric accents (pure css) to echo 'lines' -->
+        <div class="absolute top-20 left-5 w-40 h-40 border border-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-60 h-60 border border-secondary/20 rounded-full blur-2xl"></div>
+    </div>
+
+    <!-- CONTENT WITH ELEVATED LAYOUT -->
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+
+        <!-- SECTION HEADER: refined typography & alignment -->
+        <div class="flex flex-col items-start md:text-right mb-12 md:mb-20 max-w-3xl ">
+            <span class="font-semibold inline-block text-secondary text-sm tracking-[0.2em] uppercase font-medium border-l-2 md:border-l-0 md:border-r-2 border-secondary pl-3 md:pl-0 md:pr-3 leading-none">
+                Our Foundation
+            </span>
+            <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-4 leading-[1.1] tracking-tight">
+                Mission & Vision
+            </h2>
+            <!-- subtle decorative rule -->
+            <div class="w-24 h-0.5 bg-secondary/70 mt-6 md:mt-4"></div>
+        </div>
+
+        <!-- ASYMMETRICAL GRID: VISUAL DIALOGUE BETWEEN MISSION & VISION -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+
+            <!-- MISSION CARD: larger presence, anchored left -->
+            <div class="md:col-span-7 relative group">
+                <!-- background shape that interacts with 'identity lines' -->
+                <div class="absolute -inset-4 bg-gradient-to-tr from-secondary/5 to-transparent rounded-[3rem] blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+                
+                <div class="relative p-10 md:p-12 bg-white/90 backdrop-blur-sm border-l-8 border-secondary shadow-2xl shadow-gray-300/30 rounded-r-3xl rounded-bl-3xl">
+
+                    <!-- inline mission tag -->
+                    <span class="text-xs font-mono uppercase tracking-[0.3em] text-secondary/70 block mb-3">core purpose</span>
+                    
+                    <h3 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-location-crosshairs text-secondary"></i>
+                        Mission
+                    </h3>
+
+                    <p class="text-gray-700 text-xl leading-relaxed mb-8 font-light">
+                        Delivering world-class projects focused on:
+                    </p>
+
+                    <ul class="space-y-5 text-gray-800 text-lg">
+                        <li class="flex items-center gap-4 border-b border-gray-200/60 pb-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-sm font-bold">✦</span>
+                            Execution quality
+                        </li>
+                        <li class="flex items-center gap-4 border-b border-gray-200/60 pb-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-sm font-bold">✦</span>
+                            Operational efficiency
+                        </li>
+                        <li class="flex items-center gap-4 border-b border-gray-200/60 pb-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-sm font-bold">✦</span>
+                            Technological innovation
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="flex-shrink-0 w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-sm font-bold">✦</span>
+                            Corporate commitment
+                        </li>
+                    </ul>
+                    
+                    <!-- subtle 'identity line' motif -->
+                    <div class="absolute bottom-4 right-4 text-secondary/10 text-7xl font-black italic">“</div>
+                </div>
+            </div>
+
+            <!-- VISION CARD: offset, overlapping slightly to create tension -->
+            <div class="md:col-span-5 relative group md:-mt-16">
+                <div class="absolute -inset-3 bg-gradient-to-bl from-secondary/10 to-transparent rounded-[2rem] blur-lg group-hover:blur-xl transition-all duration-700"></div>
+                
+                <div class="relative p-10 md:p-12 bg-gray-900 text-gray-100 rounded-3xl shadow-2xl border border-gray-800 overflow-hidden">
+
+                    <!-- background line element -->
+                    <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                        <img src="identityLine1.png" alt="" class="w-full h-full object-cover">
+                    </div>
+
+                    <span class="text-xs font-mono uppercase tracking-[0.3em] text-secondary/60 block mb-3">future direction</span>
+                    
+                    <h3 class="text-2xl md:text-4xl font-extrabold text-white mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-eye-low-vision text-secondary"></i>
+                        Vision
+                    </h3>
+
+                    <p class="text-gray-300 text-xl leading-relaxed mb-8 font-light">
+                        To be a leading and trusted company in providing integrated solutions for smart infrastructure and construction projects through the fusion of innovation, quality, and governance.
+                    </p>
+
+                    <!-- Quote block with distinctive styling & line accent -->
+                    <div class="relative pl-8 pt-4 border-t border-secondary/40">
+                        <span class="absolute left-0 top-4 text-5xl text-secondary/40 leading-none">“</span>
+                        <p class="text-xl md:text-2xl italic font-light text-gray-200 relative z-10">
+                            Lines define character
+                        </p>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+<section class="mb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between py-10">
+        <div class="flex items-center gap-5">
+            <p class="h-2 w-15 bg-secondary"></p>
+            <p class="text-3xl font-bold">Our Projects</p>
+        </div>
+        <div>
+            <a href="#" class="border bg-transparent border-secondary py-3 px-5 flex items-center gap-3"><i class="fa-solid fa-angle-right text-secondary mt-1"></i><p class="text-secondary">View All Projects</p></a>
+        </div>
+    </div>
+    <div class="w-full grid grid-cols-3 gap-3 px-5 ">
+        @for (project of projects; track project.id) {
+        <div  class="w-full bg-cover h-70 relative  group" style="background-image: url('{{project.imageUrl}}');">
+            <div class="absolute transition  w-full h-full cover-h group-hover:bg-black/50 bg-black/0">
+
+            </div>
+            <div class="absolute  transition-all -bottom-20 group-hover:bottom-0 text-white p-5  ">
+                <h3 class="text-xl font-semibold mt-4">{{project.sector.title}}</h3>
+                <p class=" mt-2">{{project.title}}</p>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+ 
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+    <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+      <iframe class="absolute inset-0"  title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927758.0376467324!2d46.16296798722131!3d24.724997667946024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2seg!4v1773836178680!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%" frameborder="0"></iframe>
+      <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+        <div class="lg:w-1/2 px-6">
+          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+          <p class="mt-1">123 Main Street, City, Country</p>
+        </div>
+        <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+          <a class="text-indigo-500 leading-relaxed">info@deep-lines.com</a>
+          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+          <p class="leading-relaxed">123-456-7890</p>
+        </div>
+      </div>
+    </div>
+    <form id="contactUs-form" class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+      <h2 class="font-bold text-[#CA0018] text-xl  mb-1  title-font">Contact Us</h2>
+      <p class=" leading-relaxed mb-5 ">Feel free to reach out to us with any questions or inquiries.</p>
+      <div class="relative mb-4">
+        <label for="name" class="leading-7 text-sm text-[#CA0018]">Name</label>
+        <input type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-[#CA0018] focus:ring-2 focus:ring-[#CA0018]/50 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <div class="relative mb-4">
+        <label for="email" class="leading-7 text-sm text-[#CA0018]">Email</label>
+        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-[#CA0018] focus:ring-2 focus:ring-[#CA0018]/50 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <div class="relative mb-4">
+        <label for="message" class="leading-7 text-sm text-[#CA0018]">Message</label>
+        <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-[#CA0018] focus:ring-2 focus:ring-[#CA0018]/50 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+      </div>
+      <button type="button" (click)="submitContactForm()" class="text-white bg-secondary cursor-pointer border-0 py-2 px-6 focus:outline-none  rounded text-lg">Submit</button>
+    </form>
+  </div>
+</section>
+ 

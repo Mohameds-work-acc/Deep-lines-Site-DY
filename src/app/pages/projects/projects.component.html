@@ -1,0 +1,500 @@
+<div class="projects-page">
+    
+    <!-- Hero Section with Parallax Effect -->
+    <section class="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900/80 z-10"></div>
+            <div class="absolute inset-0 opacity-20">
+                <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                        <pattern id="grid" patternUnits="userSpaceOnUse" width="20" height="20">
+                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)"/>
+                </svg>
+            </div>
+            <img src="hero-section.jpg" alt="Projects" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <div class="inline-block mb-4 animate-fade-in">
+                <div class="w-16 h-0.5 bg-[#CA0018] mx-auto"></div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-slide-up">
+                Our <span class="text-[#CA0018]">Projects</span>
+            </h1>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto animate-slide-up animation-delay-200">
+                Delivering excellence across Saudi Arabia - showcasing our commitment to quality, innovation, and sustainable infrastructure
+            </p>
+            
+            <!-- Sector Filter with Icons -->
+            <div class="flex flex-wrap justify-center gap-3 mt-12 animate-slide-up animation-delay-400">
+                <button (click)="filterBySector(null)" 
+                        [class.active]="selectedSectorId === null"
+                        class="filter-btn px-6 py-3 rounded-full transition-all duration-300 flex items-center gap-2"
+                        [ngClass]="selectedSectorId === null ? 'bg-[#CA0018] text-white' : 'bg-white/10 text-white hover:bg-white/20'">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>All Projects</span>
+                </button>
+                <button *ngFor="let sector of uniqueSectors" 
+                        (click)="filterBySector(sector.id)"
+                        [class.active]="selectedSectorId === sector.id"
+                        class="filter-btn px-6 py-3 rounded-full transition-all duration-300 flex items-center gap-2"
+                        [ngClass]="selectedSectorId === sector.id ? 'bg-[#CA0018] text-white' : 'bg-white/10 text-white hover:bg-white/20'">
+                    <i [class]="getSectorIcon(sector.title)"></i>
+                    <span>{{sector.title}}</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" fill="white">
+                <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="flex items-center justify-center min-h-[60vh]">
+        <div class="text-center">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#CA0018] border-t-transparent"></div>
+            <p class="mt-4 text-gray-600">Loading projects...</p>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="flex items-center justify-center min-h-[60vh]">
+        <div class="text-center max-w-md mx-auto p-8 bg-red-50 rounded-2xl">
+            <i class="fa-solid fa-circle-exclamation text-5xl text-red-500 mb-4"></i>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Unable to Load Projects</h3>
+            <p class="text-gray-600 mb-4">{{error}}</p>
+            <button (click)="loadProjects()" class="px-6 py-2 bg-[#CA0018] text-white rounded-full hover:bg-[#CA0018]/90 transition-colors">
+                Try Again
+            </button>
+        </div>
+    </div>
+
+    <!-- PROJECTS SHOWCASE - Dynamic Grid Layout -->
+    <div *ngIf="!loading && !error" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            
+            <!-- Results Header -->
+            <div class="flex flex-wrap justify-between items-center mb-12 pb-4 border-b border-gray-200">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900">
+                        {{filteredProjects.length}} 
+                        <span class="text-gray-500 font-normal">Successful Projects</span>
+                    </h2>
+                    <p class="text-gray-500 mt-1">Transforming visions into reality across the Kingdom</p>
+                </div>
+                <div class="hidden md:flex items-center gap-2 text-sm text-gray-500">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Latest projects featured</span>
+                </div>
+            </div>
+            
+            <!-- Empty State -->
+            <div *ngIf="filteredProjects.length === 0" class="text-center py-20">
+                <i class="fa-regular fa-folder-open text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">No Projects Found</h3>
+                <p class="text-gray-600">Try selecting a different sector category</p>
+                <button (click)="filterBySector(null)" class="mt-4 text-[#CA0018] font-semibold hover:underline">
+                    View All Projects
+                </button>
+            </div>
+            
+            <!-- Featured Project - First Project Highlight -->
+            <div *ngIf="filteredProjects.length > 0" class="mb-16">
+                <div class="relative rounded-3xl overflow-hidden group cursor-pointer" (click)="openProjectModal(filteredProjects[0])">
+                    <img [src]="filteredProjects[0].imageUrl || 'assets/default-project.jpg'" 
+                         [alt]="filteredProjects[0].title"
+                         class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">{{filteredProjects[0].title}}</h3>
+                        <p class="text-gray-200 text-lg max-w-2xl mb-4">{{filteredProjects[0].description | slice:0:150}}...</p>
+                        <div class="flex items-center gap-4 text-white/80">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-regular fa-building"></i>
+                                {{filteredProjects[0].sector.title}}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <i class="fa-regular fa-user"></i>
+                                {{filteredProjects[0].author?.name || 'Deep Lines Team'}}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="bg-white rounded-full p-3 shadow-lg">
+                            <i class="fa-solid fa-arrow-right text-[#CA0018]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <div *ngIf="!loading && !error" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            
+            <!-- Results Header (Keep as is) -->
+            <div class="flex flex-wrap justify-between items-center mb-12 pb-4 border-b border-gray-200">
+                <!-- ... keep existing header ... -->
+            </div>
+            
+            <!-- Empty State (Keep as is) -->
+            <!-- ... keep existing empty state ... -->
+            
+            <!-- Featured Project - First Project Highlight (Keep as is) -->
+            <div *ngIf="filteredProjects.length > 0" class="mb-24">
+                <div class="relative rounded-3xl overflow-hidden group cursor-pointer" (click)="openProjectModal(filteredProjects[0])">
+                    <!-- ... keep existing featured project design ... -->
+                </div>
+            </div>
+            
+            <!-- REDESIGNED: Other Projects Section - Magazine Style Layout -->
+            <div class="mt-16">
+                <div class="flex items-center justify-between mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900">More <span class="text-[#CA0018]">Projects</span></h2>
+                        <div class="w-20 h-1 bg-[#CA0018] mt-2"></div>
+                        <p class="text-gray-500 mt-3">Explore our diverse portfolio of successful infrastructure projects</p>
+                    </div>
+                    <div class="hidden md:flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fa-regular fa-compass"></i>
+                        <span>{{filteredProjects.length - 1}} additional projects</span>
+                    </div>
+                </div>
+                
+                <!-- Layout 1: Alternating Full-Width Cards -->
+                <div class="space-y-16">
+                    <div *ngFor="let project of filteredProjects.slice(1); let i = index" 
+                         class="group cursor-pointer animate-fade-in-up"
+                         [style.animation-delay]="(i * 0.1) + 's'"
+                         (click)="openProjectModal(project)">
+                        
+                        <!-- Alternating Layout: Even index = Image Left, Odd index = Image Right -->
+                        <div class="relative">
+                            <div *ngIf="i % 2 === 0" class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                                <!-- Image Side -->
+                                <div class="relative overflow-hidden rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                                    <div class="relative h-[400px] overflow-hidden">
+                                        <img [src]="project.imageUrl || 'assets/default-project.jpg'" 
+                                             [alt]="project.title"
+                                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                                        
+                                        <!-- Sector Badge Floating -->
+                                        <div class="absolute top-6 left-6">
+                                            <span class="px-4 py-2 bg-[#CA0018] text-white text-sm font-semibold rounded-full shadow-lg">
+                                                {{project.sector.title}}
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Project Number -->
+                                        <div class="absolute bottom-6 right-6">
+                                            <div class="text-6xl font-black text-white/40 group-hover:text-white/60 transition-all">
+                                                {{ ('0' + (i + 2)).slice(-2) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Side -->
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-0.5 bg-[#CA0018]"></div>
+                                        <span class="text-[#CA0018] font-semibold text-sm tracking-wider">SUCCESS STORY</span>
+                                    </div>
+                                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 group-hover:text-[#CA0018] transition-colors leading-tight">
+                                        {{project.title}}
+                                    </h3>
+                                    <p class="text-gray-600 text-lg leading-relaxed">
+                                        {{project.description || 'A landmark infrastructure project delivering exceptional results and client satisfaction.'}}
+                                    </p>
+                                    
+                                   
+                                    
+                                    <!-- Read More Link -->
+                                    <div class="pt-4">
+                                        <span class="inline-flex items-center gap-2 text-[#CA0018] font-semibold group-hover:gap-3 transition-all">
+                                            View Project Details
+                                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Odd Index: Image Right -->
+                            <div *ngIf="i % 2 !== 0" class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                                <!-- Content Side (Left) -->
+                                <div class="order-2 lg:order-1 space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-12 h-0.5 bg-[#CA0018]"></div>
+                                        <span class="text-[#CA0018] font-semibold text-sm tracking-wider">FEATURED WORK</span>
+                                    </div>
+                                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 group-hover:text-[#CA0018] transition-colors leading-tight">
+                                        {{project.title}}
+                                    </h3>
+                                    <p class="text-gray-600 text-lg leading-relaxed">
+                                        {{project.description || 'A landmark infrastructure project delivering exceptional results and client satisfaction.'}}
+                                    </p>
+                                   
+                                    
+                                    <!-- Read More Link -->
+                                    <div class="pt-4">
+                                        <span class="inline-flex items-center gap-2 text-[#CA0018] font-semibold group-hover:gap-3 transition-all">
+                                            View Project Details
+                                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Image Side (Right) -->
+                                <div class="order-1 lg:order-2 relative overflow-hidden rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                                    <div class="relative h-[400px] overflow-hidden">
+                                        <img [src]="project.imageUrl || 'assets/default-project.jpg'" 
+                                             [alt]="project.title"
+                                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                                        
+                                        <!-- Sector Badge Floating -->
+                                        <div class="absolute top-6 right-6">
+                                            <span class="px-4 py-2 bg-[#CA0018] text-white text-sm font-semibold rounded-full shadow-lg">
+                                                {{project.sector.title}}
+                                            </span>
+                                        </div>
+                                        
+                                        <!-- Project Number -->
+                                        <div class="absolute bottom-6 left-6">
+                                            <div class="text-6xl font-black text-white/20 group-hover:text-white/30 transition-all">
+                                                 {{ ('0' + (i + 2)).slice(-2) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Decorative Line -->
+                            <div class="absolute -bottom-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" 
+                                 *ngIf="i !== filteredProjects.slice(1).length - 1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- PROJECT STATISTICS -->
+    <section *ngIf="!loading && !error && projects.length > 0" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 w-80 h-80 border-2 border-white rounded-full"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 border-2 border-white rounded-full"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block text-[#CA0018] text-sm tracking-[0.3em] uppercase font-semibold mb-4 bg-[#CA0018]/20 px-4 py-2 rounded-full">
+                    Our Impact
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white">
+                    Delivering Excellence <span class="text-[#CA0018]">Across the Kingdom</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="text-5xl font-bold text-[#CA0018] mb-3">{{projects.length}}</div>
+                    <div class="text-white font-semibold">Completed Projects</div>
+                    <div class="text-gray-400 text-sm mt-1">100% Success Rate</div>
+                </div>
+                <div class="text-center group">
+                    <div class="text-5xl font-bold text-[#CA0018] mb-3">{{uniqueSectors.length}}</div>
+                    <div class="text-white font-semibold">Industry Sectors</div>
+                    <div class="text-gray-400 text-sm mt-1">Diverse Expertise</div>
+                </div>
+                <div class="text-center group">
+                    <div class="text-5xl font-bold text-[#CA0018] mb-3">15+</div>
+                    <div class="text-white font-semibold">Years Experience</div>
+                    <div class="text-gray-400 text-sm mt-1">Trusted Partner</div>
+                </div>
+                <div class="text-center group">
+                    <div class="text-5xl font-bold text-[#CA0018] mb-3">98%</div>
+                    <div class="text-white font-semibold">Client Satisfaction</div>
+                    <div class="text-gray-400 text-sm mt-1">Exceeding Expectations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block text-[#CA0018] text-sm tracking-[0.3em] uppercase font-semibold mb-4 bg-[#CA0018]/10 px-4 py-2 rounded-full">
+                    Client Voices
+                </span>
+                <h2 class="text-4xl font-bold text-gray-900">
+                    What Our <span class="text-[#CA0018]">Clients Say</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all">
+                    <i class="fa-solid fa-quote-left text-3xl text-[#CA0018] mb-4"></i>
+                    <p class="text-gray-600 mb-4">"Deep Lines delivered beyond our expectations. Their expertise and professionalism made our infrastructure project a resounding success."</p>
+                    <div class="font-semibold text-gray-900">Mohammed Al-Faisal</div>
+                    <div class="text-sm text-gray-500">Ministry of Municipal Affairs</div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all">
+                    <i class="fa-solid fa-quote-left text-3xl text-[#CA0018] mb-4"></i>
+                    <p class="text-gray-600 mb-4">"The team's commitment to quality and innovation is unmatched. They truly understand Vision 2030 and its infrastructure requirements."</p>
+                    <div class="font-semibold text-gray-900">Sarah Al-Turki</div>
+                    <div class="text-sm text-gray-500">Saudi Vision 2030 Office</div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all">
+                    <i class="fa-solid fa-quote-left text-3xl text-[#CA0018] mb-4"></i>
+                    <p class="text-gray-600 mb-4">"Working with Deep Lines was seamless. Their project management and technical expertise are world-class."</p>
+                    <div class="font-semibold text-gray-900">Khalid Al-Rashid</div>
+                    <div class="text-sm text-gray-500">NEOM Project Management</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+        
+        <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <i class="fa-regular fa-building text-5xl text-[#CA0018] mb-6"></i>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to Start Your Next Project?
+            </h2>
+            <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+                Let's collaborate and bring your infrastructure vision to life with our proven expertise
+            </p>
+            <a href="/contact" class="inline-flex items-center gap-2 bg-[#CA0018] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#CA0018]/90 transition-all group">
+                Discuss Your Project
+                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+<!-- Project Detail Modal -->
+<div *ngIf="selectedProject" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in" (click)="closeModal()">
+    <div class="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto relative animate-slide-up" (click)="$event.stopPropagation()">
+        
+        <!-- Modal Header with Full Image -->
+        <div class="relative h-96">
+            <img [src]="selectedProject?.imageUrl || 'assets/default-project.jpg'" 
+                 [alt]="selectedProject?.title"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+            <button (click)="closeModal()" 
+                    class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all">
+                <i class="fa-solid fa-times text-white text-xl"></i>
+            </button>
+            
+            <div class="absolute bottom-6 left-6 right-6">
+                <div class="flex items-center gap-3 mb-3 flex-wrap">
+                    <span class="px-3 py-1 bg-[#CA0018] text-white text-sm font-semibold rounded-full">
+                        {{selectedProject?.sector?.title}}
+                    </span>
+                    <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-sm rounded-full">
+                        Project ID: #{{selectedProject?.id}}
+                    </span>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-2">{{selectedProject?.title}}</h3>
+                <div class="flex items-center gap-4 text-white/80 text-sm">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-regular fa-user"></i>
+                        {{selectedProject?.author?.name || 'Deep Lines Team'}}
+                    </span>
+                  
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Content -->
+        <div class="p-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="md:col-span-2">
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Project Overview</h4>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        {{selectedProject?.description || 'A landmark infrastructure project demonstrating our commitment to excellence, innovation, and sustainable development practices.'}}
+                    </p>
+                    
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Key Achievements</h4>
+                    <ul class="grid grid-cols-2 gap-3 mb-6">
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <i class="fa-solid fa-check-circle text-[#CA0018] text-sm"></i>
+                            <span>On-time delivery</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <i class="fa-solid fa-check-circle text-[#CA0018] text-sm"></i>
+                            <span>Under budget execution</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <i class="fa-solid fa-check-circle text-[#CA0018] text-sm"></i>
+                            <span>Zero safety incidents</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <i class="fa-solid fa-check-circle text-[#CA0018] text-sm"></i>
+                            <span>ISO certified quality</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-quote-left text-[#CA0018] text-2xl"></i>
+                            <h5 class="font-semibold text-gray-900">Project Impact</h5>
+                        </div>
+                        <p class="text-gray-600">
+                            This project significantly contributed to the local infrastructure development, enhancing connectivity and service delivery for thousands of residents while supporting Saudi Vision 2030 objectives.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="md:col-span-1">
+                    <div class="bg-gray-50 rounded-xl p-6 sticky top-6">
+                        <h5 class="font-bold text-gray-900 mb-4">Project Details</h5>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Sector</div>
+                                <div class="font-semibold text-gray-900">{{selectedProject?.sector?.title}}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Project Manager</div>
+                                <div class="font-semibold text-gray-900">{{selectedProject?.author?.name || 'Deep Lines Team'}}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500 mb-1">Last Updated</div>
+                                <div class="font-semibold text-gray-900">{{selectedProject?.updatedBy?.name || 'Project Team'}}</div>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4 border-gray-200">
+                        
+                        <button (click)="closeModal()" 
+                                class="w-full bg-[#CA0018] text-white py-3 rounded-xl font-semibold hover:bg-[#CA0018]/90 transition-all mb-3">
+                            Request Case Study
+                        </button>
+                        <button class="w-full border-2 border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:border-[#CA0018] hover:text-[#CA0018] transition-all">
+                            Download Project PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
