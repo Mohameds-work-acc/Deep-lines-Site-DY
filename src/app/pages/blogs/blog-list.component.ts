@@ -36,10 +36,8 @@ export class BlogListComponent implements OnInit {
       next: (data) => {
         this.blogs = data;
         this.loading = false;
-        console.log('Blogs loaded:', this.blogs);
       },
       error: (err) => {
-        console.error('Error loading blogs:', err);
         this.error = 'Failed to load articles. Please check your connection and try again.';
         this.loading = false;
         

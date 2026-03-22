@@ -6,6 +6,8 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { BlogListComponent } from './pages/blogs/blog-list.component';
 import { BlogSingleComponent } from './pages/blog-single/blog-single.component';
+import { BecomeSupplierComponent } from './pages/become-supplier/become-supplier.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,5 +17,7 @@ export const routes: Routes = [
     {path: 'solutions', component: ProductsComponent},
     {path:'projects', component:ProjectsComponent} ,
     {path: 'blogs', component: BlogListComponent},
-    {path: 'blog/:id', component: BlogSingleComponent}
+    {path: 'blog/:id', component: BlogSingleComponent},
+    {path: 'become-supplier', component: BecomeSupplierComponent},
+    {path: 'contact', component: ContactUsComponent},
 ];
