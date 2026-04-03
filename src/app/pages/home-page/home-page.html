@@ -72,19 +72,19 @@
           <div class=" flex items-center justify-center relative py-10 ">
             <img src="identityLine1.png" alt="Identity line " class="hidden sm:block size-50 absolute z-[-1] -top-1/5 rotate-100 left-1/30 transform  opacity-50">
             <img src="identityLine2.png" alt="Identity line" class="hidden sm:block absolute z-[-1] -bottom-1/5  right-1/30   opacity-50">
-            <div class="w-1/2 space-y-10">
+            <div class="sm:w-1/2 px-5 space-y-10">
                 <div class="flex items-center gap-4">
                     <p class="mt-4 h-1 w-20 bg-[#CA0018]"></p>
-                    <h2 class="text-3xl  font-bold mt-4 text-[#0B1013]">About Us</h2>
+                    <h2 class="text-2xl  font-bold mt-4 text-[#0B1013]">About Us</h2>
                 </div>
-                <div class="w-[90%] text-base text-[#0B1013] font-medium">
+                <div class="sm:w-[90%]  text-base text-[#0B1013] font-medium">
                     Deep Lines is a Saudi infrastructure company delivering integrated solutions in water, sewage, electricity, drainage, and smart traffic systems.
 
                     We operate with a strong commitment to quality, governance, and sustainability. Our specialized engineering team utilizes modern technologies and international standards to execute complex projects efficiently and reliably. Inspired by Vision 2030, we aim to build smart infrastructure that supports national growth and creates lasting impact for future generations.
                 </div>
 
             </div>
-            <div class="flex gap-4 items-center justify-center">
+            <div class="sm:flex gap-4 items-center hidden  justify-center">
                 <div>
                     <img src="FAQ-bg.jpg" alt="About us image" class="h-full w-80 object-cover">
                 </div>
@@ -218,15 +218,15 @@
 </section>
 <section class="mb-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between py-10">
-        <div class="flex items-center gap-5">
-            <p class="h-2 w-15 bg-secondary"></p>
-            <p class="text-3xl font-bold">Our Projects</p>
+        <div class="flex items-center gap-2 sm:gap-5">
+            <p class="h-2 w-10 sm:w-15 bg-secondary"></p>
+            <p class="text-xl font-bold">Our Projects</p>
         </div>
         <div>
-            <a href="#" class="border bg-transparent border-secondary py-3 px-5 flex items-center gap-3"><i class="fa-solid fa-angle-right text-secondary mt-1"></i><p class="text-secondary">View All Projects</p></a>
+            <a routerLink="/projects" class="border text-xs sm:text-sm bg-transparent border-secondary py-3 px-2 sm:px-5 flex items-center gap-3"><i class="fa-solid fa-angle-right text-secondary mt-1"></i><p class="text-secondary ">View All Projects</p></a>
         </div>
     </div>
-    <div class="w-full grid grid-cols-3 gap-3 px-5 ">
+    <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 px-5 ">
         @for (project of projects; track project.id) {
         <div  class="w-full bg-cover h-70 relative  group" style="background-image: url('{{project.imageUrl}}');">
             <div class="absolute transition  w-full h-full cover-h group-hover:bg-black/50 bg-black/0">
@@ -241,40 +241,219 @@
     </div>
 </section>
  
-<section class="text-gray-600 body-font relative">
-  <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-    <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-      <iframe class="absolute inset-0"  title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927758.0376467324!2d46.16296798722131!3d24.724997667946024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2seg!4v1773836178680!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%" frameborder="0"></iframe>
-      <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-        <div class="lg:w-1/2 px-6">
-          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-          <p class="mt-1">123 Main Street, City, Country</p>
-        </div>
-        <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
-          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-          <a class="text-indigo-500 leading-relaxed">info@deep-lines.com</a>
-          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-          <p class="leading-relaxed">123-456-7890</p>
-        </div>
-      </div>
+<!-- Our Partners Section - Home Page -->
+<section class="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    
+    <!-- Background Decorative Elements -->
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #CA0018 0.5px, transparent 0.5px); background-size: 30px 30px;"></div>
     </div>
-    <form id="contactUs-form" class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-      <h2 class="font-bold text-[#CA0018] text-xl  mb-1  title-font">Contact Us</h2>
-      <p class=" leading-relaxed mb-5 ">Feel free to reach out to us with any questions or inquiries.</p>
-      <div class="relative mb-4">
-        <label for="name" class="leading-7 text-sm text-[#CA0018]">Name</label>
-        <input type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-[#CA0018] focus:ring-2 focus:ring-[#CA0018]/50 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-      </div>
-      <div class="relative mb-4">
-        <label for="email" class="leading-7 text-sm text-[#CA0018]">Email</label>
-        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-[#CA0018] focus:ring-2 focus:ring-[#CA0018]/50 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-      </div>
-      <div class="relative mb-4">
-        <label for="message" class="leading-7 text-sm text-[#CA0018]">Message</label>
-        <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-[#CA0018] focus:ring-2 focus:ring-[#CA0018]/50 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-      </div>
-      <button type="button" (click)="submitContactForm()" class="text-white bg-secondary cursor-pointer border-0 py-2 px-6 focus:outline-none  rounded text-lg">Submit</button>
-    </form>
-  </div>
+    
+    <!-- Floating Accent Circles -->
+    <div class="absolute top-20 left-10 w-40 h-40 bg-[#CA0018]/5 rounded-full blur-2xl animate-pulse-slow"></div>
+    <div class="absolute bottom-20 right-10 w-60 h-60 bg-[#CA0018]/5 rounded-full blur-2xl animate-pulse-slow animation-delay-1000"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#CA0018]/5 rounded-full mb-4">
+                <svg class="w-4 h-4 text-[#CA0018]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                <span class="text-xs font-semibold text-[#CA0018] tracking-wider">OUR NETWORK</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Trusted by <span class="text-[#CA0018]">Industry Leaders</span>
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Collaborating with the best to deliver exceptional infrastructure solutions across the Kingdom
+            </p>
+        </div>
+        
+        <!-- Partners Logo Cloud - Interactive Design -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+            <div *ngFor="let partner of partners; let i = index" 
+                 class="group relative animate-fade-in-up"
+                 [style.animation-delay]="(i * 0.05) + 's'">
+                
+                <div class="relative bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#CA0018]/30 transform hover:-translate-y-2">
+                    
+                    <!-- Logo Container -->
+                    <div class="overflow-hidden flex items-center justify-center h-20   transition-all duration-500">
+                        <img [src]="partner.logo" 
+                             alt="partner Logo"
+                             class=" max-w-1/2 object-contain">
+                    </div>
+                    
+                    <!-- Hover Overlay Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#CA0018]/0 to-[#CA0018]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                   
+                    
+                    <!-- Decorative Corner -->
+                    <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-[#CA0018]/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-[#CA0018]/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonial from Partner -->
+        <div class="mt-16 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="md:col-span-2 p-8 md:p-10">
+                    <svg class="w-10 h-10 text-[#CA0018]/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+                    </svg>
+                    <p class="text-gray-600 text-lg italic mb-6">
+                        "Deep Lines has been an exceptional partner in delivering critical infrastructure projects. Their commitment to quality, innovation, and on-time delivery sets them apart in the industry."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-[#CA0018]/10 rounded-full flex items-center justify-center">
+                            <span class="text-xl font-bold text-[#CA0018]">A</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Ahmed Al-Faisal</h4>
+                            <p class="text-sm text-gray-500">CEO, Saudi Infrastructure Group</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-[#CA0018] to-[#CA0018]/80 p-8 md:p-10 flex items-center justify-center text-center">
+                    <div>
+                        <div class="text-4xl font-bold text-white mb-2">50+</div>
+                        <p class="text-white/80 text-sm">Active Partnerships</p>
+                        <div class="mt-4 text-4xl font-bold text-white mb-2">15+</div>
+                        <p class="text-white/80 text-sm">Years of Collaboration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Become a Partner CTA -->
+        <div class="mt-12 text-center">
+            <a routerLink="/become-supplier" 
+               class="inline-flex items-center gap-2 text-[#CA0018] font-semibold hover:gap-3 transition-all group">
+                <span>Become Our Partner</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Us Card - Unique Design -->
+<section class="relative group ">
+    
+    <!-- Main Card Container -->
+    <div class="relative overflow-hidden rounded-3xl bg-white shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
+        
+        <!-- Diagonal Accent Stripe -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#CA0018] to-[#CA0018]/80 transform rotate-12 translate-x-16 -translate-y-16 group-hover:translate-x-12 group-hover:-translate-y-12 transition-transform duration-700"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 p-8 md:p-10">
+            
+            <!-- Animated Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#CA0018]/5 rounded-full mb-6 animate-pulse-slow">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CA0018] opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-[#CA0018]"></span>
+                </span>
+                <span class="text-xs font-semibold text-[#CA0018] tracking-wider">WE'RE HERE TO HELP</span>
+            </div>
+            
+            <!-- Heading with Quote Icon -->
+            <div class="mb-6">
+                <div class="flex items-start gap-3">
+                    <div class="text-6xl font-serif text-[#CA0018]/20 leading-none">"</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight -mt-2">
+                        Let's Build<br>
+                        <span class="text-[#CA0018]">Something Amazing</span>
+                        <span class="text-2xl">✨</span>
+                    </h2>
+                </div>
+                <p class="text-gray-600 mt-4 leading-relaxed">
+                    Whether you have a question about our services or want to discuss a potential project, we're just a message away.
+                </p>
+            </div>
+            
+            <!-- Contact Methods - Unique Layout -->
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <!-- Phone Card -->
+                <div class="group/phone relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-4 hover:shadow-lg transition-all duration-300">
+                    <div class="absolute inset-0 bg-[#CA0018] opacity-0 group-hover/phone:opacity-5 transition-opacity"></div>
+                    <div class="relative">
+                        <div class="w-12 h-12 rounded-2xl bg-[#CA0018]/10 flex items-center justify-center mb-3 group-hover/phone:bg-[#CA0018]/20 transition-all">
+                            <svg class="w-6 h-6 text-[#CA0018] transform group-hover/phone:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-xs text-gray-500 font-medium mb-1">Call Us Anytime</p>
+                        <a href="tel:+966123456789" class="text-sm font-bold text-gray-900 hover:text-[#CA0018] transition-colors">+966 12 345 6789</a>
+                    </div>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="group/email relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-4 hover:shadow-lg transition-all duration-300">
+                    <div class="absolute inset-0 bg-[#CA0018] opacity-0 group-hover/email:opacity-5 transition-opacity"></div>
+                    <div class="relative">
+                        <div class="w-12 h-12 rounded-2xl bg-[#CA0018]/10 flex items-center justify-center mb-3 group-hover/email:bg-[#CA0018]/20 transition-all">
+                            <svg class="w-6 h-6 text-[#CA0018] transform group-hover/email:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-xs text-gray-500 font-medium mb-1">Email Us</p>
+                        <a href="mailto:info@deep-lines.com" class="text-sm font-bold text-gray-900 hover:text-[#CA0018] transition-colors">info@deep-lines.com</a>
+                    </div>
+                </div>
+            </div>
+            
+           
+            
+            <!-- CTA Button with Icon Animation -->
+            <a routerLink="/contact" 
+               class="group/btn relative w-full inline-flex items-center justify-between bg-gradient-to-r from-[#CA0018] to-[#CA0018]/90 text-white px-6 py-3.5 rounded-xl font-semibold overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <span class="relative z-10 flex items-center gap-2">
+                    Start a Conversation
+                    <svg class="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </span>
+                <span class="absolute inset-0 bg-gradient-to-r from-[#CA0018]/80 to-[#CA0018] transform scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left duration-500"></span>
+                <span class="relative z-10 text-sm opacity-75 hidden sm:inline">
+                    <i class="fa-regular fa-clock"></i> Response within 24h
+                </span>
+            </a>
+            
+            <!-- Trust Indicators -->
+            <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+                <div class="flex items-center gap-2">
+                    <div class="flex -space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-[#CA0018]/10 flex items-center justify-center border-2 border-white">
+                            <span class="text-[10px] font-bold text-[#CA0018]">✓</span>
+                        </div>
+                        <div class="w-6 h-6 rounded-full bg-[#CA0018]/10 flex items-center justify-center border-2 border-white">
+                            <span class="text-[10px] font-bold text-[#CA0018]">✓</span>
+                        </div>
+                        <div class="w-6 h-6 rounded-full bg-[#CA0018]/10 flex items-center justify-center border-2 border-white">
+                            <span class="text-[10px] font-bold text-[#CA0018]">✓</span>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-500">Trusted by 50+ clients</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <svg class="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <span class="text-xs text-gray-500">4.9/5 Rating</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Bottom Corner -->
+        <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#CA0018]/5 to-transparent rounded-tr-full"></div>
+    </div>
+    
+
 </section>
  

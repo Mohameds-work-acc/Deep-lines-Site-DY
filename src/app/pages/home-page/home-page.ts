@@ -3,9 +3,10 @@ import { SectorService } from '../../services/sector.service';
 import { CommonModule } from '@angular/common';
 import { ProjectService } from '../../services/project.service';
 import emailjs from '@emailjs/browser';
+import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home-page.html',
   styleUrls: ['./home-page.css'],
   standalone: true,
@@ -13,6 +14,32 @@ import emailjs from '@emailjs/browser';
 export class HomePage implements AfterViewInit , OnInit {
   sectors: any[] = [];
   projects: any[] = [];
+  partners = [
+    { logo: 'clients/c-1.png' },
+    {  logo: 'clients/c-2.png' },
+    { logo: 'clients/c-3.png' },
+    { logo: 'clients/c-4.png' },
+    { logo: 'clients/c-5.png',  },
+    { logo: 'clients/c-6.png',  },
+    { logo: 'clients/c-7.png',  },
+    { logo: 'clients/c-8.png', },
+    { logo: 'clients/c-9.png',  },
+    { logo: 'clients/c-10.png', },
+    { logo: 'clients/c-11.png',  },
+    { logo: 'clients/c-12.png',  },
+    { logo: 'clients/c-13.png',  },
+    { logo: 'clients/c-14.png',  },
+    { logo: 'clients/c-15.png',  },
+    { logo: 'clients/c-16.png',  },
+    { logo: 'clients/c-17.png',  },
+    { logo: 'clients/c-18.png',  },
+    { logo: 'clients/c-19.png',  },
+    { logo: 'clients/c-20.png',  },
+    { logo: 'clients/c-21.png',  },
+    { logo: 'clients/c-22.jpeg',  },
+    { logo: 'clients/c-23.jpeg',  },
+    { logo: 'clients/c-24.svg',  },
+  ];
   constructor(private sectorService: SectorService , private projectService: ProjectService) {
     
   }
@@ -60,7 +87,7 @@ export class HomePage implements AfterViewInit , OnInit {
     const SwiperCtor = (window as any).Swiper;
     if (typeof SwiperCtor === 'function') {
       new SwiperCtor('.swiper', {
-        slidesPerView: 4,
+        slidesPerView: window.innerWidth < 640 ? 1 : 4,
         direction: 'horizontal',
         navigation: {
           nextEl: '.swiper-button-next',

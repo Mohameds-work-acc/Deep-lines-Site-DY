@@ -1,0 +1,48 @@
+/* Mobile Menu Styles */
+.mobile-menu.active .mobile-backdrop {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-backdrop {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-backdrop.opacity-0 {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.mobile-backdrop:not(.opacity-0) {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Active link styling */
+a.active {
+    background: rgba(202, 0, 24, 0.1);
+    color: #CA0018;
+    border-left: 2px solid #CA0018;
+}
+
+/* Scrollbar for mobile menu */
+.mobile-menu nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.mobile-menu nav::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.mobile-menu nav::-webkit-scrollbar-thumb {
+    background: #CA0018;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-view-li {
+        display: none;
+    }
+}
