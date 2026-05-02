@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Project } from '../models/project.model';
+import { GetProjectsDTO } from '../models/project.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
@@ -10,12 +10,12 @@ export class ProjectService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.base);
+  getAll(): Observable<GetProjectsDTO[]> {
+    return this.http.get<GetProjectsDTO[]>(this.base);
   }
 
-  getById(id: number): Observable<Project> {
-    return this.http.get<Project>(`${this.base}/${id}`);
+  getById(id: number): Observable<GetProjectsDTO> {
+    return this.http.get<GetProjectsDTO>(`${this.base}/${id}`);
   }
 
 }

@@ -1,28 +1,82 @@
-/* Animations */
-@keyframes fadeIn {
-  from {
+/* Map Marker Styles */
+.custom-marker {
+  background: transparent;
+  cursor: pointer;
+}
+
+.marker-pin {
+  position: relative;
+  width: 30px;
+  height: 42px;
+  transition: transform 0.2s ease;
+}
+
+.marker-pin:hover {
+  transform: scale(1.1);
+}
+
+.marker-pulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 38px;
+  height: 38px;
+  background-color: rgba(202, 0, 24, 0.3);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
     opacity: 0;
   }
-  to {
-    opacity: 1;
-  }
+}
+
+/* Map Container Styles */
+#main-projects-map, #modal-project-map {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Leaflet Popup Customization */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-left: 3px solid #CA0018;
+}
+
+.leaflet-popup-tip {
+  border-top-color: #CA0018;
+}
+
+/* Filter Button Active State */
+.filter-btn.active {
+  background-color: #CA0018;
+  color: white;
+  box-shadow: 0 4px 12px rgba(202, 0, 24, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -39,115 +93,32 @@
   animation: slideUp 0.6s ease-out forwards;
 }
 
-.animate-fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
 .animation-delay-200 {
   animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
 }
 
 .animation-delay-400 {
   animation-delay: 0.4s;
 }
 
-/* Line Clamp */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.animate-fade-in-up {
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
 }
 
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Filter Buttons */
-.filter-btn {
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.filter-btn.active {
-  background-color: #CA0018;
-  color: white;
-}
-
-.filter-btn:hover:not(.active) {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Hover Effects */
-.group:hover .group-hover\:scale-110 {
-  transform: scale(1.1);
-}
-
-.group:hover .group-hover\:translate-y-0 {
-  transform: translateY(0);
-}
-
-/* Loading Spinner */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-/* Modal Scroll */
-.modal-open {
-  overflow: hidden;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #CA0018;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a00013;
-}
-
-/* Sticky Sidebar */
-.sticky {
-  position: sticky;
-  top: 2rem;
-}
-
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   .animate-fade-in-up,
   .animate-slide-up {
     animation: none;
     opacity: 1;
   }
-  
-  .filter-btn {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-}
 
-/* Featured Project Overlay */
-.featured-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4), transparent);
+  #main-projects-map {
+    height: 350px;
+  }
 }

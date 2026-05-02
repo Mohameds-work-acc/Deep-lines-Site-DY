@@ -20,4 +20,5 @@ export const routes: Routes = [
     {path: 'blog/:id', component: BlogSingleComponent},
     {path: 'become-supplier', component: BecomeSupplierComponent},
     {path: 'contact', component: ContactUsComponent},
+    {path: '**', redirectTo: 'home'}
 ];

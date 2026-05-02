@@ -1,13 +1,13 @@
 <!-- SECTORS PAGE - UNIQUE DESIGN -->
 <div class="sectors-unique">
-    
+
     <!-- Hero Section - Keep as is -->
     <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
             <img src="hero-section.jpg" alt="Sectors Hero" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/80 to-gray-900/70"></div>
         </div>
-        
+
         <div class="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <div class="inline-block mb-4">
                 <div class="w-16 h-0.5 bg-[#CA0018] mx-auto"></div>
@@ -16,10 +16,10 @@
                 Our <span class="text-[#CA0018]">Sectors</span>
             </h1>
             <p class="text-xl text-gray-200 max-w-3xl mx-auto animate-slide-up">
-                Specialized infrastructure solutions across key sectors, delivering excellence through innovation and expertise
+                Specialized Expertise Across Critical Infrastructure
             </p>
         </div>
-        
+
         <div class="absolute bottom-0 left-0 right-0">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" fill="white">
                 <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
@@ -48,33 +48,33 @@
 
     <!-- ALTERNATING LAYOUTS FOR EACH SECTOR -->
     <div *ngIf="!loading && !error && sectors.length > 0" class="overflow-hidden">
-        
+
         <!-- SECTOR 1 - Full Screen Hero Style (Alternating) -->
-        <div *ngFor="let sector of sectors; let i = index" 
+        <div *ngFor="let sector of sectors; let i = index"
              class="relative min-h-screen flex items-center justify-center overflow-hidden"
              [ngClass]="{'bg-white': i % 2 === 0, 'bg-gray-50': i % 2 !== 0}">
-            
+
             <!-- Background Pattern -->
             <div class="absolute inset-0 opacity-5">
-                <div class="absolute top-0 left-0 w-full h-full" 
+                <div class="absolute top-0 left-0 w-full h-full"
                      [style.backgroundImage]="'url(' + (sector.imageUrl || 'assets/pattern-bg.jpg') + ')'"
                      style="background-size: cover; background-position: center;">
                 </div>
             </div>
-            
+
             <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-20">
-                
+
                 <!-- Layout A: Image Left, Content Right (Even indices) -->
                 <div *ngIf="i % 2 === 0" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    
+
                     <!-- Image Side with Interactive Elements -->
                     <div class="relative group">
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img [src]="sector.imageUrl || 'assets/default-sector.jpg'" 
+                            <img [src]="sector.imageUrl || 'assets/default-sector.jpg'"
                                  [alt]="sector.title"
                                  class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                            
+
                             <!-- Floating Stats Card -->
                             <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 transform translate-y-0 group-hover:-translate-y-2 transition-all duration-500">
                                 <div class="flex items-center justify-between">
@@ -95,29 +95,29 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Decorative Elements -->
                         <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#CA0018]/30"></div>
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#CA0018]/30"></div>
                     </div>
-                    
+
                     <!-- Content Side with Rich Information -->
                     <div class="space-y-6">
                         <div class="inline-flex items-center gap-2 bg-[#CA0018]/10 px-4 py-2 rounded-full">
                             <i class="fa-solid fa-cube text-[#CA0018] text-sm"></i>
                             <span class="text-[#CA0018] text-sm font-semibold tracking-wider">SECTOR {{i + 1}}</span>
                         </div>
-                        
+
                         <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
                             {{sector.title}}
                         </h2>
-                        
+
                         <div class="w-20 h-1 bg-[#CA0018]"></div>
-                        
+
                         <p class="text-xl text-gray-600 leading-relaxed">
                             {{sector.description || 'Comprehensive infrastructure solutions tailored to meet the highest standards of quality, innovation, and sustainability.'}}
                         </p>
-                        
+
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-4">
                             <div class="flex items-center gap-3">
@@ -139,10 +139,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Mission & Vision Quick View -->
                         <div class="flex flex-wrap gap-4 pt-4">
-                            <button *ngIf="sector.mission" 
+                            <button *ngIf="sector.mission"
                                     (click)="openMissionVision(sector)"
                                     class="group flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-[#CA0018] transition-all">
                                 <i class="fa-solid fa-bullseye text-[#CA0018]"></i>
@@ -162,40 +162,40 @@
                                 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                             </button>
                         </div>
-                        
+
                         <!-- Author Info -->
                         <div *ngIf="sector.author" class="pt-6 flex items-center gap-3 text-sm text-gray-500 border-t border-gray-200">
                             <i class="fa-regular fa-user-circle text-lg"></i>
                             <span>Lead by Deep Lines</span>
                             <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                            
-                           
+
+
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Layout B: Image Right, Content Left (Odd indices) -->
                 <div *ngIf="i % 2 !== 0" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    
+
                     <!-- Content Side -->
                     <div class="space-y-6 lg:order-1">
                         <div class="inline-flex items-center gap-2 bg-[#CA0018]/10 px-4 py-2 rounded-full">
                             <i class="fa-solid fa-cube text-[#CA0018] text-sm"></i>
                             <span class="text-[#CA0018] text-sm font-semibold tracking-wider">SECTOR {{i + 1}}</span>
                         </div>
-                        
+
                         <h2 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
                             {{sector.title}}
                         </h2>
-                        
+
                         <div class="w-20 h-1 bg-[#CA0018]"></div>
-                        
+
                         <p class="text-xl text-gray-600 leading-relaxed">
                             {{sector.description || 'Comprehensive infrastructure solutions tailored to meet the highest standards of quality, innovation, and sustainability.'}}
                         </p>
-                        
-                        
-                        
+
+
+
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap gap-4">
                             <button (click)="openSectorModal(sector)"
@@ -209,7 +209,7 @@
                                 View Mission & Vision
                             </button>
                         </div>
-                        
+
                         <!-- Stats -->
                         <div class="flex gap-8 pt-4">
                             <div>
@@ -217,7 +217,7 @@
                                 <div class="text-sm text-gray-500">Completed Projects</div>
                             </div>
                             <div>
-                                <div class="text-2xl font-bold text-[#CA0018]">98%</div>
+                                <div class="text-2xl font-bold text-[#CA0018]">100%</div>
                                 <div class="text-sm text-gray-500">Client Satisfaction</div>
                             </div>
                             <div>
@@ -226,27 +226,27 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Image Side with Interactive Elements -->
                     <div class="relative group lg:order-2">
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img [src]="sector.imageUrl || 'assets/default-sector.jpg'" 
+                            <img [src]="sector.imageUrl || 'assets/default-sector.jpg'"
                                  [alt]="sector.title"
                                  class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                            
-                           
+
+
                         </div>
-                        
+
                         <!-- Decorative Elements -->
                         <div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-[#CA0018]/30"></div>
                         <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-[#CA0018]/30"></div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
 
     <!-- SECTOR SHOWCASE - Gallery Style -->
@@ -255,7 +255,7 @@
             <div class="absolute top-20 left-20 w-64 h-64 border-2 border-white rounded-full"></div>
             <div class="absolute bottom-20 right-20 w-96 h-96 border-2 border-white rounded-full"></div>
         </div>
-        
+
         <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="inline-block text-[#CA0018] text-sm tracking-[0.3em] uppercase font-semibold mb-4 bg-[#CA0018]/20 px-4 py-2 rounded-full">
@@ -268,7 +268,7 @@
                     Delivering unmatched quality and innovation in every project we undertake
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center group">
                     <div class="w-20 h-20 bg-[#CA0018]/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#CA0018]/30 transition-all group-hover:scale-110">
@@ -317,11 +317,11 @@
 <div *ngIf="selectedSector" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in" (click)="closeModal()">
     <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative animate-slide-up" (click)="$event.stopPropagation()">
         <div class="relative h-64">
-            <img [src]="selectedSector.imageUrl || 'assets/default-sector.jpg'" 
+            <img [src]="selectedSector.imageUrl || 'assets/default-sector.jpg'"
                  [alt]="selectedSector.title"
                  class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-            <button (click)="closeModal()" 
+            <button (click)="closeModal()"
                     class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all">
                 <i class="fa-solid fa-times text-white text-xl"></i>
             </button>
@@ -335,14 +335,14 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="p-6 md:p-8">
             <div class="prose max-w-none">
                 <h4 class="text-2xl font-bold text-gray-900 mb-4">Sector Overview</h4>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
                     {{selectedSector.description || 'We provide comprehensive infrastructure solutions tailored to meet the unique requirements of this sector, ensuring excellence in every project delivery.'}}
                 </p>
-                
+
                 <div *ngIf="selectedSector.mission || selectedSector.vision" class="grid md:grid-cols-2 gap-6 mb-8">
                     <div *ngIf="selectedSector.mission" class="bg-gray-50 rounded-xl p-6">
                         <div class="flex items-center gap-3 mb-4">
@@ -351,7 +351,7 @@
                         </div>
                         <p class="text-gray-600">{{selectedSector.mission}}</p>
                     </div>
-                    
+
                     <div *ngIf="selectedSector.vision" class="bg-gray-50 rounded-xl p-6">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fa-solid fa-eye text-[#CA0018] text-2xl"></i>
@@ -360,7 +360,7 @@
                         <p class="text-gray-600">{{selectedSector.vision}}</p>
                     </div>
                 </div>
-                
+
                 <div class="flex flex-wrap gap-4 pt-6 border-t border-gray-200">
                     <a href="/contact" class="inline-flex items-center gap-2 bg-[#CA0018] text-white px-6 py-2 rounded-full hover:bg-[#CA0018]/90 transition-all">
                         Request Consultation
@@ -382,7 +382,7 @@
                     <i class="fa-solid fa-times text-gray-600"></i>
                 </button>
             </div>
-            
+
             <div class="space-y-6">
                 <div *ngIf="mvSector?.mission">
                     <div class="flex items-center gap-3 mb-3">
@@ -391,7 +391,7 @@
                     </div>
                     <p class="text-gray-600">{{mvSector?.mission}}</p>
                 </div>
-                
+
                 <div *ngIf="mvSector?.vision">
                     <div class="flex items-center gap-3 mb-3">
                         <i class="fa-solid fa-eye text-[#CA0018] text-2xl"></i>
@@ -400,7 +400,7 @@
                     <p class="text-gray-600">{{mvSector?.vision}}</p>
                 </div>
             </div>
-            
+
             <div class="mt-8 pt-6 border-t border-gray-200">
                 <button (click)="openSectorModal(mvSector!)" class="w-full bg-[#CA0018] text-white py-3 rounded-xl font-semibold hover:bg-[#CA0018]/90 transition-all">
                     View Full Sector Details
